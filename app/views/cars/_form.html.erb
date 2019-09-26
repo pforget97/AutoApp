@@ -18,12 +18,17 @@
 
   <div class="field">
     <%= form.label :make_id %>
-    <%= form.text_field :make_id %>
+    <%= form.collection_select :make_id, Make.all, :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :model_id %>
-    <%= form.text_field :model_id %>
+    <%= form.collection_select :model_id, Model.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_id %>
+    <%= form.collection_check_boxes(:part_ids, @parts, :id, :name) %>
   </div>
 
   <div class="actions">
