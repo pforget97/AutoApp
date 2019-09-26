@@ -5,5 +5,14 @@
   <%= @part.name %>
 </p>
 
+<p>
+  <strong>Cars:</strong>
+  <ul>
+    <% @part.cars.each do |car| %>
+      <li><%= car.vin %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_part_path(@part) %> |
 <%= link_to 'Back', parts_path %>

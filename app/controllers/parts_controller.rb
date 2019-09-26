@@ -20,7 +20,7 @@ class PartsController < ApplicationController
 
   # GET /parts/1/edit
   def edit
-    @parts = Part.all
+    @cars = Car.all
   end
 
   # POST /parts
