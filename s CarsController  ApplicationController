@@ -1,0 +1,119 @@
+[33mcommit b6fc6b05f1687ffec502d4cc323754cda2764f11[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 22:25:52 2019 -0600
+
+    Edit app/views/cars/_form.html.erb to display Part options by name in a drop-down list
+
+[33mcommit 3421940a0dbf039e7d8582a604880ced362adda7[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 22:23:28 2019 -0600
+
+    Edit app/views/parts/show.html.erb edit to display all Cars associated with part by VIN
+
+[33mcommit 17f060265f14ec70a9954d7bb066bd3ca4be49d3[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:56:06 2019 -0600
+
+    Edit app/views/cars/show.html.erb changed to VIN header to display :vin, included .name to display names of Makes and Models, added list of Parts associated with Car
+
+[33mcommit 113fd39ecaf556c391f240324e1cd487bda67883[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:46:27 2019 -0600
+
+    Edit app/views/cars/index.html.erb changed Vin column header to VIN, added .name to display the names of Make and Model for each Car
+
+[33mcommit 59ef4510af6d6771e7955cbbf85c02573b65ad7d[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:31:49 2019 -0600
+
+    Edit app/views/cars.html.erb changes input format for :make, :model using a dropdown list with :names, adds check boxes displaying names of :parts to include when creating/editing a Car
+
+[33mcommit b3a4e42533de1cba9d814db10f56b87696a53edd[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:22:38 2019 -0600
+
+    Edit add/controller/parts_controller.rb update controller to include Cars with creation and edits of Parts, specify permition of multiple Cars using list as a parameter
+
+[33mcommit a6c712ef6bde3379009bc68cb1623d39db09bdb9[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:19:07 2019 -0600
+
+    Edit app/controllers/cars_controller.rb update controller to include Parts with creation and edits of Cars
+
+[33mcommit f9c8d401dc4a672103e37405ee008ad8b28d1807[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:10:42 2019 -0600
+
+    Edit app/models/part.rb added association has_and_belongs_to_many :parts
+
+[33mcommit d5fd13bddb28e315431930f8968c7a8c2cd313a1[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:09:34 2019 -0600
+
+    Edit app/models/car.rb added association has_and_belongs_to_many :parts
+
+[33mcommit d1eb6315f3518fa3ad852f3b3ed8880593ed0410[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 21:06:46 2019 -0600
+
+    Generated CarsParts model with attributes car:references, part:references
+
+[33mcommit 5108e8062790239087222acfefcded460c414f63[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:51:36 2019 -0600
+
+    Edit app/views/models/show.html.erb to display name of the Models Make in 'Show' view instead of object id
+
+[33mcommit 7cf4aa89b1863149d8c719c52f4a774477ed719b[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:49:03 2019 -0600
+
+    Edit app/views/models/index.html.erb to display the name of the Models Make instead of object id
+
+[33mcommit 1e107e134a29f2f0c8882403dec56b507eb37ac0[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:45:39 2019 -0600
+
+    Edit app/views/models/_form.html.erb edit form to create/edit Model, changed input type for Make field from text input to drop-down menu with all Makes that a Model can belong to
+
+[33mcommit 4ec8da9d0e6655c701e84db06bb8bbf9d16c1021[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:34:14 2019 -0600
+
+    Edit app/models/make, defined association has_many :models
+
+[33mcommit 6aa717621345f1501c8519775a87cbcb974a76db[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:27:22 2019 -0600
+
+    Rails db:migrate
+
+[33mcommit fa9c5107db0457a505e83373aa3091670b6bbde7[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:26:11 2019 -0600
+
+    Generated Part scaffold with attribute name:string
+
+[33mcommit 0daa09ef2af3980309201fd2e0b67ae4cea675a0[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:24:23 2019 -0600
+
+    Generated Car scaffold with attributes vin:string, make:references, model:references
+
+[33mcommit 8884ae08ef23acd7d5ea8bd2df18828d37966ac6[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:22:16 2019 -0600
+
+    Generated Model scaffold with attributes name:string make:references
+
+[33mcommit 72c4d37a747880db2f25b12e959fb4d18cd30517[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:20:38 2019 -0600
+
+    Generated Make scaffold with attributes name:string, country:string
+
+[33mcommit c8575113925789be5c35628f9bf52311b9be8dc3[m
+Author: Patricia Forget <pforget@msudenver.edu>
+Date:   Wed Sep 25 15:17:39 2019 -0600
+
+    Created new rails directory 'AutoApp'
