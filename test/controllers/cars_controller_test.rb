@@ -9,7 +9,7 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should find car from the fixture" do
-    assert Car.where("name like ?", "00000004").length == 1
+    assert Car.where("vin like ?", "00000004").length == 1
   end
 
   test "searches always return 200" do
