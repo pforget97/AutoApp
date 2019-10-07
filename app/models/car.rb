@@ -4,5 +4,5 @@ class Car < ApplicationRecord
   has_and_belongs_to_many :parts
 
   validates :make, :model, presence: true
-  validates :vin, length: {is: 8}
+  validates :vin, uniqueness:true, length: {is: 8}
 end
