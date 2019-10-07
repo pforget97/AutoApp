@@ -3,7 +3,28 @@ require 'test_helper'
 class PartsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @part = parts(:one)
+    @part = parts(:two)
   end
+
+  test "should find part from the fixture" do
+    assert Part.where("name like ?", "Part").length == 1
+  end
+
+  test "searches always return 200" do
+    get search_parts_url, params: {search: "Part"}
+    assert_equal 200, status
+  end
+
+  test "should find part" do
+    get search_parts_url, params: { search: "Part" }
+    assert_select 'td', 'Part'
+  end 
+  
+  test "shouldn't find missing part" do
+    get search_part_url, params: { search: "" }
+    assert_select 'td', false
+  end
+
 
   test "should get index" do
     get parts_url

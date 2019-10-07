@@ -3,7 +3,28 @@ require 'test_helper'
 class MakesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @make = makes(:one)
+    @make = makes(:two)
   end
+
+  test "should find make from the fixture" do
+    assert Make.where("name like ?", "Make").length == 1
+  end
+
+  test "searches always return 200" do
+    get search_makes_url, params: {search: "Make"}
+    assert_equal 200, status
+  end
+
+  test "should find Make" do
+    get search_makes_url, params: { search: "Make" }
+    assert_select 'td', 'Make'
+  end 
+  
+  test "shouldn't find missing make" do
+    get search_cars_url, params: { search: "" }
+    assert_select 'td', false
+  end
+
 
   test "should get index" do
     get makes_url

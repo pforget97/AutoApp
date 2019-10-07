@@ -3,7 +3,28 @@ require 'test_helper'
 class ModelsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @model = models(:one)
+    @model = models(:two)
   end
+
+  test "should find model from the fixture" do
+    assert Model.where("name like ?", "Model").length == 1
+  end
+
+  test "searches always return 200" do
+    get search_models_url, params: {search: "Model"}
+    assert_equal 200, status
+  end
+
+  test "should find Model" do
+    get search_models_url, params: { search: "Model" }
+    assert_select 'td', 'Model'
+  end 
+  
+  test "shouldn't find missing model" do
+    get search_models_url, params: { search: "" }
+    assert_select 'td', false
+  end
+
 
   test "should get index" do
     get models_url
