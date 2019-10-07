@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  make: one
+  name: Model
+  make: Make
 
 two:
-  name: MyString
-  make: two
+  name: Model
+  make: 
+
+three:
+  name: 
+  make: Make
