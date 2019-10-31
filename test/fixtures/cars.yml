@@ -6,16 +6,6 @@ one:
   model: Model
 
 two:
-  vin: 04
+  vin: 40000004
   make: Make
   model: Model
-
-three:
-  vin: 00000001
-  make: 
-  model Model
-
-four:
-  vin: 00000002
-  make: Make
-  model: 

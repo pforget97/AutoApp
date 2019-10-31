@@ -4,8 +4,6 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @car = cars(:one)
     @car = cars(:two)
-    @car = cars(:three)
-    @car = cars(:four)
   end
 
   test "should find car from the fixture" do

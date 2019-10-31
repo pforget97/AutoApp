@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  car: one
-  part: one
+  car: car_one
+  part: part_one
 
 two:
-  car: two
-  part: two
+  car: car_two
+  part: part_two

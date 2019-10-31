@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: Make
-  country: Country
+  name: Make1
+  country: Country1
 
 two:
-  name:  
-  country: Country
+  name:  Make2
+  country: Country2
 
 three:
-  name: Make
-  country:
+  name: Make3
+  country: Country3
