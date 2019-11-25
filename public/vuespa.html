@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Auto App SPA with Vue</title>
+<title>A very simple SPA in Vue</title>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script
     src="https://code.jquery.com/jquery-3.3.1.js"
@@ -9,24 +9,44 @@
 </head>
 <body>
 
+<h2>Auto App SPA in Vue</h2>
+
+
 <div id="Itemlist">
-    <button v-on:click="doajax('cars')">cars</button>
-    <button v-on:click="doajax('makes')">makes</button>
-    <button v-on:click="doajax('models')">models</button>
-    <button v-on:click="doajax('parts')">parts</button>
+    <button v-on:click="doajax('cars'),type='cars'">Cars</button>
+    <button v-on:click="doajax('makes'), type='makes'">Makes</button>
+    <button v-on:click="doajax('models'), type='models'">Models</button>
+    <button v-on:click="doajax('parts'),type='parts'">Parts</button>
     <ul>
     <div v-for="item in items">
-        <li>{{item.name}}</li>
+        <li>{{item.name}} {{item.vin}} <button v-on:click="dodelete( item.id )">Delete</button></li>
     </div>
     </ul>
 </div>
 
+
+
 <script type="text/javascript">
 var ItemsVue = new Vue({
     el: '#Itemlist',
-    data: { items: [] },
+    data: { items: [], 
+		type: ''},
     methods: {
         // use jquery
+
+	dodelete(current){
+            $.ajax({
+                url: 'http://localhost:3000/' + ItemsVue.$data.type + '/' + current + '.json',
+                method: 'DELETE',
+                success: (d) => {
+                    this.items = d;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        },
+
         doajax: function(which) {
             $.ajax({
                 url: 'http://localhost:3000/' + which + '.json',
@@ -40,6 +60,8 @@ var ItemsVue = new Vue({
                 }
             });
         }
+
+
     }
 });
 </script>

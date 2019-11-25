@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Auto App SPA with Vue</title>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<div id="Itemlist">
+    <button v-on:click="cars_selected=true,makes_selected=false,models_selected=false,parts_selected=false">Cars</button>
+    <button v-on:click="cars_selected=false,makes_selected=true,models_selected=false,parts_selected=false">Makes</button>
+    <button v-on:click="cars_selected=false,makes_selected=false,models_selected=true,parts_selected=false">Models</button>
+    <button v-on:click="cars_selected=false,makes_selected=false,models_selected=false,parts_selected=true">Parts</button>
+    <ul>
+    <span v-if="cars_selected">
+        <div v-for="car in cars">
+            <li>{{car.vin}}</li>
+        </div>
+    </span>
+    <span v-if="makes_selected">
+        <div v-for="make in makes">
+            <li>{{make.name}}</li>
+		<div v-for="model in models">
+			<ul>
+			<span v-if="model.make_id === make.id">
+				<li>{{ model.name }}</li>
+			</span>
+			</ul>
+		</div>
+        </div>
+    </span>
+    <span v-if="models_selected">
+        <div v-for="model in models">
+            <li>{{model.name}}</li>
+        </div>
+    </span>
+    </ul>
+</div>
+
+<script type="text/javascript">
+var ItemsVue = new Vue({
+    el: '#Itemlist',
+    data: { cars: [],
+	cars_selected: false,
+	makes: [], 
+	makes_selected: false,
+	models: [],
+	models_selected: false,
+	parts: [],
+	parts_selected: false},
+
+    mounted: function() {
+        axios.get('http://localhost:3000/cars.json')
+            .then(response => { this.cars = response.data })
+            .catch(error => { console.log(error); });
+        axios.get('http://localhost:3000/makes.json')
+            .then(response => { this.makes = response.data })
+            .catch(error => { console.log(error); });
+        axios.get('http://localhost:3000/models.json')
+            .then(response => { this.models = response.data })
+            .catch(error => { console.log(error); });
+        axios.get('http://localhost:3000/parts.json')
+            .then(response => { this.parts = response.data })
+            .catch(error => { console.log(error); });
+    }
+});
+</script>
+
+
+</body>
+</html>
